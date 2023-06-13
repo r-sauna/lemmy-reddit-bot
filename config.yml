@@ -17,3 +17,8 @@ default:
   flair_mappings:
     meta: 512f0a40-09cd-11ee-be53-0230a864caf3
     ir_sauna: 3a5e2968-c678-11ea-a164-0e548db6aa8f
+  comment: >-
+    We are protesting Reddit's [terrible handling of their API pricing changes and policy decisions](https://old.reddit.com/r/ModCoord/comments/13xh1e7/an_open_letter_on_the_state_of_affairs_regarding/).
+
+
+    You can still find us on our own Lemmy instance over at https://r-sauna.fi

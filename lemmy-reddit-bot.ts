@@ -21,6 +21,7 @@ const r = new snoowrap({
 // TODO: might want to flag NSFW eventually as well
 function republishPost(postTitle: string, postURL: string, community: string){
     var flairId;
+    var postData;
 
     if (community in config.flair_mappings){
         flairId = config.flair_mappings[community];
@@ -30,20 +31,26 @@ function republishPost(postTitle: string, postURL: string, community: string){
 
     if (flairId){
         console.log(postTitle + " at " + postURL + " in " + community + " with flair " + flairId);
-        r.submitLink({
+        postData = {
             title: postTitle,
             url: postURL,
             subredditName: config.reddit_subreddit,
             flairId: flairId
-        })
+        };
     } else {
         console.log(postTitle + " at " + postURL + " in " + community);
-        r.submitLink({
+        postData={
             title: postTitle,
             url: postURL,
             subredditName: config.reddit_subreddit
-        })
+        };
     }
+
+    r.submitLink(postData).then(submission => {
+        if ("comment" in config){
+            submission.reply(config.comment);
+        }
+    });
 }
 
 const bot = new LemmyBot({
