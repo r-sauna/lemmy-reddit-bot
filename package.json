@@ -1,0 +1,22 @@
+{
+    "name": "lemmmy-reddit-bot",
+    "version": "1.0.0",
+    "description": "Posts the Parenti quote when you ask.",
+    "main": "lemmy-reddit-bot.ts",
+    "scripts": {
+        "build": "tsc",
+        "start": "ts-node lemmy-reddit-bot.ts"
+    },
+    "author": "",
+    "license": "APGL-3.0",
+    "dependencies": {
+        "lemmy-bot": "https://github.com/r-sauna/lemmy-bot.git#a0b4b2e53b936d81867d46e9699369b916f21df9",
+        "node-yaml-config": "^1.0.0",
+        "snoowrap": "^1.23.0"
+    },
+    "devDependencies": {
+        "@types/node": "^20.1.5",
+        "ts-node": "^10.9.1",
+        "typescript": "^5.1.3"
+    }
+}

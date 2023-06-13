@@ -1,0 +1,19 @@
+default:
+  dump_json: false
+  #user_agent: saunabot
+  #lemmy_db: 'db.sqlite3'
+  lemmy_instance: r-sauna.fi
+  lemmy_rewrite_instance: true
+  client_id: '<client_id>'
+  client_secret: '<client_secret>'
+  reddit_username: '<reddit_user>'
+  reddit_password: '<reddit_password>'
+  reddit_subreddit: sauna
+  lemmy_communities:
+    - meta
+  #default_flair: ba105e4e-09d0-11ee-82d9-a61326a51167
+  # flair mappings for r/sauna (replace for your subreddit):
+  # https://www.reddit.com/r/sauna/api/link_flair.json?raw_json=1
+  flair_mappings:
+    meta: 512f0a40-09cd-11ee-be53-0230a864caf3
+    ir_sauna: 3a5e2968-c678-11ea-a164-0e548db6aa8f

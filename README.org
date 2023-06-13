@@ -1,0 +1,42 @@
+This is a simple bot to post new posts from a Lemmy community to a subreddit.
+
+This bot uses [[https://github.com/not-an-aardvark/snoowrap][snoowrap]] to talk to reddit, and listens to lemmy events via [[https://github.com/SleeplessOne1917/lemmy-bot][lemmy-bot]].
+
+On reddit you'll need to create an [[https://old.reddit.com/prefs/apps][application]], ideally in a dedicated bot user. Select =script=, and add some name and URL. Click =edit= if the secret is not shown. Create a configuration file based on =config.yml=, or the following:
+
+#+BEGIN_SRC yaml
+  default:
+    #dump json data to help with debugging
+    dump_json: false
+    #user_agent: saunabot
+    # path to the sqlite db file - if this gets lost this script will generate
+    # duplicates on reddit
+    #lemmy_db: db.sqlite3
+    # the instance to connect to
+    lemmy_instance: r-sauna.fi
+    # true to always point links to the above instance, false to keep
+    # links pointing to federated instances
+    lemmy_rewrite_instance: true
+    # credentials from the reddit app
+    client_id: '<client_id>'
+    client_secret: '<client_secret>'
+    # reddit user credentials
+    reddit_username: '<reddit_user>'
+    reddit_password: '<reddit_password>'
+    # the subreddit to post to
+    reddit_subreddit: sauna
+    # a list of communities on the lemmy server to sync
+    lemmy_communities:
+      - meta
+    # a default flair to use if nothing matches. If empty will post those
+    # articles without a flair
+    #default_flair: ba105e4e-09d0-11ee-82d9-a61326a51167
+    # a list of lemmy communities and their reddit flair IDs
+    # flair mappings for r/sauna (replace for your subreddit):
+    # https://www.reddit.com/r/sauna/api/link_flair.json?raw_json=1
+    flair_mappings:
+      meta: 512f0a40-09cd-11ee-be53-0230a864caf3
+      ir_sauna: 3a5e2968-c678-11ea-a164-0e548db6aa8f
+#+END_SRC
+
+Build with =npm ci=, =npm run build= and start with =npm start=. There might be an issue with database initialisation, which should resolve itself after restarting once or twice.

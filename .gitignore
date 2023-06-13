@@ -1,0 +1,4 @@
+.config.yaml
+/node_modules
+db.sqlite3
+lemmy-reddit-bot.js
