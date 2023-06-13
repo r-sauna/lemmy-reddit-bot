@@ -37,6 +37,8 @@ On reddit you'll need to create an [[https://old.reddit.com/prefs/apps][applicat
     flair_mappings:
       meta: 512f0a40-09cd-11ee-be53-0230a864caf3
       ir_sauna: 3a5e2968-c678-11ea-a164-0e548db6aa8f
+    # if defined and set to true all posts will be locked
+    lock: true
     # if defined the text will get posted as comment under the posting. Pay
     # attention to the double lines between paragraphs.
     comment: >-

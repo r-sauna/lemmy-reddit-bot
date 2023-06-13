@@ -50,6 +50,9 @@ function republishPost(postTitle: string, postURL: string, community: string){
         if ("comment" in config){
             submission.reply(config.comment);
         }
+        if ("lock" in config && config.lock == true){
+            submission.lock();
+        }
     });
 }
 
