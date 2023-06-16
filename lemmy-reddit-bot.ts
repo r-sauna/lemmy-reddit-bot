@@ -59,6 +59,9 @@ function republishPost(postTitle: string, postURL: string, community: string){
 const bot = new LemmyBot({
     instance: config.lemmy_instance,
     dbFile: config.lemmy_db || 'db.sqlite3',
+    connection: {
+        minutesBeforeRetryConnection: config.lemmy_connect_retry || false,
+    },
     handlers: {
         post: (res) => {
             if (config.lemmy_communities.includes(res.postView.community.name)){

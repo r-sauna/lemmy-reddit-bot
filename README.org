@@ -17,6 +17,9 @@ On reddit you'll need to create an [[https://old.reddit.com/prefs/apps][applicat
     # true to always point links to the above instance, false to keep
     # links pointing to federated instances
     lemmy_rewrite_instance: true
+    # the time in minutes before the bot tries to reconnect on closed connection
+    # defaults to false.
+    lemmy_connect_retry: 5
     # credentials from the reddit app
     client_id: '<client_id>'
     client_secret: '<client_secret>'
