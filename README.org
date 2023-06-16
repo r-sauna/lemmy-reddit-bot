@@ -55,3 +55,5 @@ On reddit you'll need to create an [[https://old.reddit.com/prefs/apps][applicat
 Build with =npm ci=, =npm run build= and start with =npm start=. There might be an issue with database initialisation, which should resolve itself after restarting once or twice.
 
 Export the environment variable =BOT_CONFIG= with a path to the configuratino file to use out of tree configuration (recommended).
+
+On systems with systemd the included service file can be used to run the bot. The default behaviour has the script exit on connection failure to lemmy, with systemd restarting it 30 seconds later - in tests this proved to be more reliable than having the bot handle reconnects internally. Set =lemmy_connect_retry= to something other than false if you prefer the bot to attempt the reconnects.

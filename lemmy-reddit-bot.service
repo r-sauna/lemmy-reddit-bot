@@ -1,0 +1,20 @@
+[Unit]
+Description=Lemmy sync bot
+After=network.target
+
+[Service]
+User=lemmybot
+ExecStart=/usr/bin/node lemmy-reddit-bot.js
+Environment=BOT_CONFIG=/etc/lemmy/lemmy-bot.yaml
+Restart=always
+RestartSec=30
+# adjust this to the checkout directory
+WorkingDirectory=/srv/lemmybot/src
+
+# Hardening
+ProtectSystem=yes
+PrivateTmp=true
+NoNewPrivileges=true
+
+[Install]
+WantedBy=multi-user.target
